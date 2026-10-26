@@ -1,8 +1,10 @@
 # History purge runbook
 
-This file prepares a history rewrite. It does not run one. Do not force-push from this change. The owner approves that step separately.
+Status: executed on October 26, 2026. `main` was rewritten and force-pushed. The rewritten tip before the follow-up checklist update was `9080341994513e03014f49e8afdd9fbb3c4b7bfc`. Do not run this rewrite again. GitHub `refs/pull/1/head` can still reach the pre-rewrite commits until GitHub Support clears cached objects.
 
-The working tree of this cleanup no longer contains the third-party screenshots or the reference pages. Those blobs remain in older commits until the commands below are run on a fresh mirror and the rewritten history is force-pushed.
+The commands below are the record of the rewrite that was run. Do not run them again.
+
+The working tree no longer contains the third-party screenshots or the reference pages, and those paths are not reachable from `main`.
 
 ## Paths found in history
 
@@ -114,4 +116,4 @@ git push --force origin refs/heads/main:refs/heads/main
 5. Do not merge any branch that was created from the old history. Rebase it onto the rewritten `main`, or delete it.
 6. After the push, ask GitHub Support to drop the unreachable objects and the pull-request cache if the screenshots must be unrecoverable from github.com. Then make the repository private, which is a separate owner step.
 
-`git push --force` is not part of this change.
+That force-push has been done. Immediately before it, the remote had only `main`, no tags, no open pull requests, and no forks. Pull request #1 was already merged. `refs/pull/1/head` still points at the pre-rewrite commits.
