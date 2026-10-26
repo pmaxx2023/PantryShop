@@ -1,4 +1,4 @@
-# PantryShop — Apple App Store release checklist
+# PShop — Apple App Store release checklist
 
 Last researched and audited: **October 26, 2026**. Target: the Apple App Store, beginning with iPhone, US storefront and English. Android requires a separate Play Store release plan.
 
@@ -57,7 +57,7 @@ The legal Account Holder must complete identity/enrollment, sign the applicable 
 
 Owner: **Engineering**. Dependencies: **None**. Applies: **V1**.
 
-- [x] **BASE-01 — Keep the full app source in the PantryShop GitHub repository.** Complete when: The audited source is present on main at ba6096cf19dd460ee560405db8182e729b83212c.
+- [x] **BASE-01 — Keep the full app source in the PShop GitHub repository.** Complete when: The audited source is present on main at ba6096cf19dd460ee560405db8182e729b83212c.
 - [x] **BASE-02 — Establish the restaurant-style Today’s Specials design.** Complete when: The existing web menu provides the accepted visual direction for the iPhone implementation.
 - [x] **BASE-03 — Supply original starter dishes and dinner imagery.** Complete when: The source contains 9 distinct dishes, 12 preparations, 39 catalog ingredients and 9 original generated food photographs.
 - [x] **BASE-04 — Implement the initial photo upload and editable ingredient review.** Complete when: Web upload, storage and review controls exist; native iPhone capture and recognition acceptance remain open below.
@@ -88,7 +88,7 @@ Primary references: [A01](#primary-sources).
 
 Owner: **PM / Apple Account Holder**. Dependencies: **SCOPE**. Applies: **V1**.
 
-- [ ] **ACCOUNT-01 — Check the PantryShop name and original brand.** **Business/legal.** Complete when: App-name availability and relevant trademark conflicts are checked; final branding can be used in every launch territory.
+- [ ] **ACCOUNT-01 — Check the PShop name and original brand.** **Business/legal.** Complete when: App-name availability and relevant trademark conflicts are checked; final branding can be used in every launch territory.
 - [ ] **ACCOUNT-02 — Verify the existing Apple Developer account.** **Not verified.** Complete when: Record membership state, legal owner, team ID, access and renewal date; an account has not been verified in this audit.
 - [ ] **ACCOUNT-03 — Choose the correct legal seller.** **Business/legal.** Complete when: Decide individual or organization enrollment; understand that the individual legal name or organization name appears as seller.
 - [ ] **ACCOUNT-04 — Complete organization verification if applicable.** **Apple requirement.** Complete when: The legal entity, authority, company website and D-U-N-S details satisfy enrollment requirements when enrolling an organization.
@@ -157,7 +157,7 @@ Owner: **Content / Design / Engineering**. Dependencies: **SCOPE; SCAN ingredien
 - [ ] **CONTENT-08 — Create the complete food-photo set.** Complete when: Every launch dish has an original or licensed, exceptionally appetizing image that reflects its actual recipe and ordinary achievable portions.
 - [ ] **CONTENT-09 — Check photo-to-recipe consistency.** Complete when: Images do not quietly add unlisted food; materially different dietary variants have suitable images or a clear standard-dish label.
 - [ ] **CONTENT-10 — Optimize and cache recipe assets.** Complete when: Photos remain sharp on supported screens and load without excessive download, storage or menu jank.
-- [ ] **CONTENT-11 — Remove incumbent reference material from the shipping product.** **Apple requirement.** Complete when: third-party product screenshots, screen maps, and competitor branding are excluded from the consumer binary and public product content; our own identity is clear.
+- [ ] **CONTENT-11 — Remove incumbent reference material from the shipping product.** **Apple requirement.** Complete when: Third-party product screenshots, screen maps, and competitor branding are absent from the working tree, from git history after the approved history purge, and from the consumer binary and public product content. The working tree no longer contains that reference material. History purge is documented in `docs/HISTORY-PURGE.md` and is not done until the owner rewrites and force-pushes history.
 - [ ] **CONTENT-12 — Establish content publishing and rollback.** Complete when: Recipes have stable IDs and versions, and a corrected recipe cannot silently invalidate a locked customer plan or its grocery quantities.
 
 Primary references: [A01](#primary-sources), [A04](#primary-sources).

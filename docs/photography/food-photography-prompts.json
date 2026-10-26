@@ -1,0 +1,50 @@
+[
+  {
+    "name": "chicken-rice",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-1592d123-039b-4944-ab4f-eeb248992cf5.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/chicken-rice.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. Golden roasted chicken thighs with crisp browned skin, fluffy white rice, roasted broccoli and a lemon wedge, on a warm ivory ceramic dinner plate. Visible ingredients allowed: chicken, rice, broccoli, lemon, olive oil, salt and black pepper. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  },
+  {
+    "name": "tomato-rigatoni",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-78dbc52f-e59f-4096-951c-a80820dbef91.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/tomato-rigatoni.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. Ridged rigatoni coated in a rich glossy red tomato and garlic sauce, ribbons of wilted spinach and finely grated Parmesan in a shallow ivory ceramic pasta bowl. Visible ingredients allowed: rigatoni, tomatoes, garlic, spinach, Parmesan, olive oil, salt and black pepper. No basil or parsley. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  },
+  {
+    "name": "black-bean-quesadilla",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-0f3a97d5-7cc9-4239-b487-a55ad5ffb137.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/black-bean-quesadilla.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. Crisp toasted folded flour-tortilla quesadillas cut into triangles, with black beans, sweet corn and melted cheddar visible in the cut edges, a small serving of shredded cabbage and a lime wedge on an ivory ceramic plate. Visible ingredients allowed: flour tortillas, black beans, corn, cheddar, cabbage, lime, olive oil, salt and black pepper. No cilantro or salsa. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  },
+  {
+    "name": "dumpling-bowl",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-40a16952-ae81-4037-91b8-f7cf103c2a57.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/dumpling-bowl.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. Golden pan-fried dumplings with crisp bottoms over shredded cabbage and carrot, a glossy soy-sesame-rice-vinegar dressing and thinly sliced spring onions, in an ivory ceramic bowl. Visible ingredients allowed: dumplings, cabbage, carrots, soy sauce, sesame oil, rice vinegar and spring onions. No sesame seeds, chili, cilantro or other garnish. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  },
+  {
+    "name": "chickpea-curry",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-a8c9301e-5b88-4b7d-9250-3692637ce890.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/chickpea-curry.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. A deeply appetizing chickpea, spinach and potato curry in a rich tomato-coconut sauce, served with white rice in an ivory ceramic shallow bowl. Visible ingredients allowed: chickpeas, spinach, potatoes, tomatoes, coconut milk, garlic, curry powder, rice, olive oil, salt and black pepper. No cilantro or other garnish. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  },
+  {
+    "name": "white-beans",
+    "source_path": "/workspace/scratch/f664f4416730/generated_images/exec-ef7c1786-d9f4-40f1-9502-67b465ba84be.png",
+    "destination_path": "/workspace/scratch/f664f4416730/analysis/pantryshop_food/white-beans.png",
+    "generation_mode": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: original restaurant-menu photograph for PantryShop, a home cooking app. Create one exceptionally appetizing editorial food photograph, landscape 3:2 composition, close framing with the dish filling most of the image and a small amount of cream linen and warm ceramic tableware visible. Warm natural window light, elegant neighborhood bistro feel, abundant but believable home-cooked portion, authentic crisp textures and glossy sauces, photographic realism with subtle natural imperfections. No text, logos, branding, hands, people or extra food dishes. All visible edible ingredients must come from the specified list. No decorative herb garnish or other unlisted edible ingredient. The final dish must look extremely inviting, like a beautiful restaurant special a home cook could make. Creamy cannellini beans in a glossy rich tomato and garlic sauce with wilted spinach, served in a rustic ivory ceramic bowl with one slice of crusty bread resting on its edge. Visible ingredients allowed: cannellini beans, tomatoes, garlic, spinach, olive oil, bread, salt and black pepper. No herbs or cheese. Three-quarter overhead camera angle.",
+    "review": "Visually inspected. Requested dish and ingredients are present; no obvious unrequested garnish, text, branding or hands."
+  }
+]

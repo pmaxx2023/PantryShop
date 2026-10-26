@@ -1,4 +1,4 @@
-# PantryShop
+# PShop
 
 A meal planner with a restaurant-style Today’s Specials menu, original dinner photography, photo-based kitchen inventory, per-person dietary adaptations, a weekly plan and a coordinated grocery list.
 
@@ -32,9 +32,7 @@ Primary implementation references:
 
 ## Evidence and limitations
 
-
-
-This implementation does not include a third-party recipe catalog, an unlimited AI recipe generator, live supermarket prices, a subscription checkout or a nutrition database. Default package prices are examples and nutrition values are recipe formulation estimates. Household substitutions change nutrition; standard-dish images are labeled when adaptations apply.
+Recipes, package prices, and nutrition figures in the starter kitchen are examples owned by this project. Nutrition values are recipe formulation estimates. Household substitutions change nutrition; standard-dish images are labeled when adaptations apply. This implementation does not include an unlimited recipe generator, live supermarket prices, a subscription checkout, or a nutrition database.
 
 ## Verification
 
