@@ -51,3 +51,9 @@ Use the Sites workflow. Keep the Site private. The source manifest declares D1 b
 Confirmed photos refresh the menu immediately and prioritize dishes using those foods. Refresh specials recalculates from inventory rather than rotating fixed cards. Pumpkin purée and fresh pumpkin have three matched dishes with appropriate preparation steps and original photographs. Existing custom photo labels such as `% Pure Pumpkin.` are normalized when loading, importing or changing a kitchen; saved photos remain intact. A quantity entered as one item is not silently converted into grams. The original amount is shown in a note and requires net-weight confirmation. Unconfirmed quantities remain visible in recipes and the grocery list as checks, not instructions to buy another package. Foods without matching dishes are explicitly listed; the recipe collection is curated and finite.
 
 Pumpkin assets: `public/food/pumpkin-pasta.webp`, `public/food/pumpkin-soup.webp`, `public/food/pumpkin-curry.webp`. Built-in image generation prompts are recorded in `docs/photography/pumpkin-photography-prompts.json`.
+
+## App Store release plan
+
+[Full Apple App Store release checklist](docs/APP_STORE_RELEASE_CHECKLIST.md) — 234 identified tasks with completion criteria, owners, dependencies, current prototype status and checked primary sources.
+
+[CSV release tracker](docs/APP_STORE_RELEASE_TRACKER.csv) — filter by phase, owner, priority, status and applicability; record completion evidence as the release progresses.
