@@ -1,0 +1,18 @@
+name = "pshop"
+main = "worker/index.ts"
+compatibility_date = "2026-05-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Standalone Cloudflare deploy. This file does not use ChatGPT Sites.
+# Replace the placeholder database_id after `wrangler d1 create pshop-d1`.
+# Create the bucket with `wrangler r2 bucket create pshop-r2`.
+# Do not put API tokens in this file.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pshop-d1"
+database_id = "00000000-0000-4000-8000-000000000000"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "pshop-r2"

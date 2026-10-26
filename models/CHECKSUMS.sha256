@@ -1,0 +1,16 @@
+# sha256  bytes  path
+# Source: HuggingFaceTB/SmolVLM-256M-Instruct (Apache-2.0). q4 ONNX only.
+# These files are fetched into public/models at release build time and copied into the app bundle.
+# The installed app does not download them.
+b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52  7353  config.json
+067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636  136  generation_config.json
+6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7  486  preprocessor_config.json
+e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46  68  processor_config.json
+5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a  3548256  tokenizer.json
+36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777  28249  tokenizer_config.json
+aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09  1069  special_tokens_map.json
+a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168  429  chat_template.json
+74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a  4739  added_tokens.json
+95814e6629ec465e7cf98a44edcee67abc06d41faa0d1acc410cf8a956cab488  63784987  onnx/vision_encoder_q4.onnx
+e3fd81130e30715580cf148398e48e2925b6219bff75e17d2a77add35a363f65  86562901  onnx/decoder_model_merged_q4.onnx
+47ed7029703cff586fd719d70251324766a6591c8a58d315076b1781a65fc900  113541438  onnx/embed_tokens_q4.onnx

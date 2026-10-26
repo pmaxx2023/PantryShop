@@ -43,3 +43,20 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Recognition runtime staged from npm, and model weights fetched at release build.
+# They belong in the iOS bundle. They are not downloaded by the installed app.
+/public/vendor/
+/public/models/
+/ios/App/App/public/
+/ios/App/Pods/
+/ios/App/Podfile.lock
+/ios/DerivedData/
+/ios/App/build/
+
+# Signing material stays outside the repository.
+*.mobileprovision
+*.p12
+*.cer
+AuthKey_*.p8
+*.ipa

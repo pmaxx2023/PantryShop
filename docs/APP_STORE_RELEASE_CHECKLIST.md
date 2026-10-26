@@ -2,7 +2,7 @@
 
 Last researched and audited: **October 26, 2026**. Target: the Apple App Store, beginning with iPhone, US storefront and English. Android requires a separate Play Store release plan.
 
-**Current release status: not ready for App Store submission.** The working product is a private, single-owner web app. The core concept and much of the business logic exist; a distributable iPhone app, reliable iPhone recognition, consumer data isolation, billing and release validation are still required.
+**Current release status: not ready for App Store submission.** The app is local-first, the consumer API is account-scoped, and an iOS project exists. A signed iPhone archive, hosted privacy and support URLs, Apple enrollment, and device tests are still required. Status values in the CSV are `DONE` (evidence in this repository), `PREPARED` (docs or code exist; the criterion still needs Apple, a device, or a hosted URL), `OWNER` (Account Holder only), `NOT_VERIFIED`, `N/A`, `PROTOTYPE_DONE`, or `TODO`.
 
 This checklist contains **234 individually identified tasks**: 8 completed prototype foundations; 211 pre-release, submission and launch tasks; 7 post-launch tasks; and 8 conditional branches. Existing Apple account readiness is unverified, not assumed absent.
 
@@ -11,6 +11,7 @@ This checklist contains **234 individually identified tasks**: 8 completed proto
 - Check a task only when its completion criterion has evidence. Add that evidence to the accompanying CSV tracker.
 - `PROTOTYPE_DONE` means completed in the current web reference. It does not certify the corresponding iPhone feature.
 - `TODO` means work or release verification is outstanding. `NOT_VERIFIED` means account or administrative state must be checked.
+- `DONE` is used only when the completion sentence is met by a file or a test in this repository. `PREPARED` means the engineering or the document exists and the remaining proof is a device, a signature, or a hosted URL. `OWNER` is Account Holder work. `N/A` is an exclusion recorded in `docs/SCOPE.md`.
 - **Apple requirement** identifies a store rule applicable to the selected implementation; **Launch quality** identifies our own product or engineering bar; **Business/legal** covers ownership and commercial readiness.
 - **Conditional** items become N/A only after the relevant feature/market is explicitly excluded. Paid-plan tasks become N/A only if V1 is changed to entirely free.
 - P0 tasks are the earliest material blockers; P1 tasks are still required for their applicable release stage; P2 tasks happen after release. The launch itself requires all applicable pre-release work.
@@ -70,16 +71,16 @@ Owner: **Engineering**. Dependencies: **None**. Applies: **V1**.
 
 Owner: **Product / PM**. Dependencies: **BASE**. Applies: **V1**.
 
-- [ ] **SCOPE-01 — Write the V1 promise in one sentence.** Complete when: Positioning says: photograph your kitchen, discover appealing dinners from food you own, and reduce additional grocery spending.
-- [ ] **SCOPE-02 — Set the initial release scope.** Complete when: Record iPhone first, US storefront, English, consumer households and no advertising as the working launch scope.
-- [ ] **SCOPE-03 — Set the free experience and paid benefits.** Complete when: Document exactly what is free, what requires a subscription, and what remains available after cancellation.
-- [ ] **SCOPE-04 — Choose a first-use path that delivers value.** Complete when: A new customer can explore and use a local kitchen before optional account-based cloud sync; no developer or ChatGPT account is required.
-- [ ] **SCOPE-05 — Specify the complete core customer journey.** Complete when: The acceptance script covers photo, review, quantities, refreshed menu, recipe, plan, grocery gaps, cooking and updated inventory.
-- [ ] **SCOPE-06 — Define supported household preferences.** Complete when: Mixed diets and portions have a written support matrix, including combinations the app cannot safely adapt.
-- [ ] **SCOPE-07 — Set the recipe-coverage launch target.** Complete when: Use 100 reviewed original or licensed recipes and at least 100 common ingredients as a proposed product bar; this is not an Apple rule.
+- [x] **SCOPE-01 — Write the V1 promise in one sentence.** Complete when: Positioning says: photograph your kitchen, discover appealing dinners from food you own, and reduce additional grocery spending.
+- [x] **SCOPE-02 — Set the initial release scope.** Complete when: Record iPhone first, US storefront, English, consumer households and no advertising as the working launch scope.
+- [x] **SCOPE-03 — Set the free experience and paid benefits.** Complete when: Document exactly what is free, what requires a subscription, and what remains available after cancellation.
+- [x] **SCOPE-04 — Choose a first-use path that delivers value.** Complete when: A new customer can explore and use a local kitchen before optional account-based cloud sync; no developer or ChatGPT account is required.
+- [x] **SCOPE-05 — Specify the complete core customer journey.** Complete when: The acceptance script covers photo, review, quantities, refreshed menu, recipe, plan, grocery gaps, cooking and updated inventory.
+- [x] **SCOPE-06 — Define supported household preferences.** Complete when: Mixed diets and portions have a written support matrix, including combinations the app cannot safely adapt.
+- [x] **SCOPE-07 — Set the recipe-coverage launch target.** Complete when: Use 100 reviewed original or licensed recipes and at least 100 common ingredients as a proposed product bar; this is not an Apple rule.
 - [ ] **SCOPE-08 — Set measurable photo-recognition and usability targets.** Complete when: Agree benchmark thresholds before beta; measure name precision, visible-food recall, correction effort and time to the first useful menu.
-- [ ] **SCOPE-09 — Separate estimates from measured savings.** Complete when: The app distinguishes additional purchase estimates, planned spending, actual purchases and savings supported by an explicit comparison.
-- [ ] **SCOPE-10 — Set feature exclusions and conditional decisions.** Complete when: Record whether reminders, live household sharing, cloud AI, iPad support and Apple Family Sharing are included or deferred.
+- [x] **SCOPE-09 — Separate estimates from measured savings.** Complete when: The app distinguishes additional purchase estimates, planned spending, actual purchases and savings supported by an explicit comparison.
+- [x] **SCOPE-10 — Set feature exclusions and conditional decisions.** Complete when: Record whether reminders, live household sharing, cloud AI, iPad support and Apple Family Sharing are included or deferred.
 - [ ] **SCOPE-11 — Assign release responsibility and an expense budget.** Complete when: Product, engineering, design, QA, support and Apple Account Holder roles have named owners and approved spending limits before work that incurs charges.
 
 Primary references: [A01](#primary-sources).
@@ -131,11 +132,11 @@ Owner: **Engineering / QA**. Dependencies: **IOS early device build; SCOPE**. Ap
 - [ ] **SCAN-03 — Measure recognition quality and correction effort.** Complete when: Report precision and recall on supported visible foods, unsupported-food behavior and corrections required per photo against the previously agreed release targets.
 - [ ] **SCAN-04 — Read package labels and distinguish related products.** Complete when: Plain pumpkin, pie filling, fresh pumpkin, similar cans, brands and preparation states are not silently conflated; unreadable dates and food freshness are never guessed.
 - [ ] **SCAN-05 — Recognize or confirm useful quantities and units.** Complete when: Net weight, volume, count, drained weight, partial packs and ambiguous labels have explicit handling; a count is never silently converted to grams.
-- [ ] **SCAN-06 — Normalize names to recipe ingredients.** Complete when: Singular/plural forms, accents, OCR punctuation and common aliases connect to the catalog while preserving the original recognized label for correction.
-- [ ] **SCAN-07 — Handle unfamiliar ingredients without a silent dead end.** Complete when: Supported matching recipes are searched; otherwise the app explains that the food is saved but not yet matched and offers a useful next action.
-- [ ] **SCAN-08 — Prevent double-counting across photos.** Complete when: Overlapping shelf images and repeated scans reconcile the same stock; two genuinely separate packages can still be recorded separately.
-- [ ] **SCAN-09 — Make confirmation quick and understandable.** Complete when: Users can accept, remove, rename, rematch and correct amounts for suggestions before they affect fully-on-hand claims.
-- [ ] **SCAN-10 — Refresh specials when confirmed inventory changes.** Complete when: Photo confirmation, manual corrections, purchases and cooking update matching and ranking immediately, including the existing pumpkin regression.
+- [x] **SCAN-06 — Normalize names to recipe ingredients.** Complete when: Singular/plural forms, accents, OCR punctuation and common aliases connect to the catalog while preserving the original recognized label for correction.
+- [x] **SCAN-07 — Handle unfamiliar ingredients without a silent dead end.** Complete when: Supported matching recipes are searched; otherwise the app explains that the food is saved but not yet matched and offers a useful next action.
+- [x] **SCAN-08 — Prevent double-counting across photos.** Complete when: Overlapping shelf images and repeated scans reconcile the same stock; two genuinely separate packages can still be recorded separately.
+- [x] **SCAN-09 — Make confirmation quick and understandable.** Complete when: Users can accept, remove, rename, rematch and correct amounts for suggestions before they affect fully-on-hand claims.
+- [x] **SCAN-10 — Refresh specials when confirmed inventory changes.** Complete when: Photo confirmation, manual corrections, purchases and cooking update matching and ranking immediately, including the existing pumpkin regression.
 - [ ] **SCAN-11 — Handle empty, failed and interrupted scans.** Complete when: Blur, no food, network failure, cancellation, app backgrounding and runtime errors recover without losing photos or inventing food.
 - [ ] **SCAN-12 — Bound memory, latency and battery use.** Complete when: Scan performance is measured on the oldest supported iPhone; memory pressure, thermal limits and low-power mode do not cause unrecovered crashes.
 - [ ] **SCAN-13 — Handle model download and caching if used.** Complete when: Disclose a required first-use download and its size, obtain the applicable user confirmation, show progress, support retry and avoid downloading it on every launch.
@@ -147,18 +148,18 @@ Primary references: [A01](#primary-sources), [A04](#primary-sources), [A05](#pri
 
 Owner: **Content / Design / Engineering**. Dependencies: **SCOPE; SCAN ingredient taxonomy**. Applies: **V1**.
 
-- [ ] **CONTENT-01 — Expand the ingredient catalog for ordinary kitchens.** Complete when: The agreed launch list covers common produce, proteins, grains, cans, freezer items, staples and common substitutions with canonical units.
-- [ ] **CONTENT-02 — Build the reviewed recipe library.** Complete when: The agreed recipe target is met with original or properly licensed content; serving amounts, steps, time and equipment are complete.
-- [ ] **CONTENT-03 — Design matching for combinations of owned ingredients.** Complete when: Menu candidates use the confirmed pantry and practical substitutions across the full library, rather than adding one bespoke recipe whenever a tester scans a new food.
-- [ ] **CONTENT-04 — Validate each recipe’s ingredient accounting.** Complete when: Every required ingredient appears in the list, optional garnish is clearly optional and quantities scale correctly.
+- [x] **CONTENT-01 — Expand the ingredient catalog for ordinary kitchens.** Complete when: The agreed launch list covers common produce, proteins, grains, cans, freezer items, staples and common substitutions with canonical units.
+- [x] **CONTENT-02 — Build the reviewed recipe library.** Complete when: The agreed recipe target is met with original or properly licensed content; serving amounts, steps, time and equipment are complete.
+- [x] **CONTENT-03 — Design matching for combinations of owned ingredients.** Complete when: Menu candidates use the confirmed pantry and practical substitutions across the full library, rather than adding one bespoke recipe whenever a tester scans a new food.
+- [x] **CONTENT-04 — Validate each recipe’s ingredient accounting.** Complete when: Every required ingredient appears in the list, optional garnish is clearly optional and quantities scale correctly.
 - [ ] **CONTENT-05 — Validate preparation and cooking instructions.** Complete when: Raw/cooked state, time, doneness and replacement-product instructions are reviewed and cooking-tested for the launch library.
 - [ ] **CONTENT-06 — Validate dietary adaptations.** Complete when: Each supported adaptation is culinarily workable and accurately named; unsupported combinations are excluded or explained.
-- [ ] **CONTENT-07 — Review allergy and nutrition wording.** Complete when: Preference matching does not promise allergen safety; nutrition is either supported by a defined calculation method or clearly presented as an estimate.
+- [x] **CONTENT-07 — Review allergy and nutrition wording.** Complete when: Preference matching does not promise allergen safety; nutrition is either supported by a defined calculation method or clearly presented as an estimate.
 - [ ] **CONTENT-08 — Create the complete food-photo set.** Complete when: Every launch dish has an original or licensed, exceptionally appetizing image that reflects its actual recipe and ordinary achievable portions.
-- [ ] **CONTENT-09 — Check photo-to-recipe consistency.** Complete when: Images do not quietly add unlisted food; materially different dietary variants have suitable images or a clear standard-dish label.
+- [x] **CONTENT-09 — Check photo-to-recipe consistency.** Complete when: Images do not quietly add unlisted food; materially different dietary variants have suitable images or a clear standard-dish label.
 - [ ] **CONTENT-10 — Optimize and cache recipe assets.** Complete when: Photos remain sharp on supported screens and load without excessive download, storage or menu jank.
 - [x] **CONTENT-11 — Remove incumbent reference material from the shipping product.** **Apple requirement.** Complete when: Third-party product screenshots, screen maps, and competitor branding are absent from the working tree, from every commit reachable from `main`, and from the production web build. Evidence: `main` was rewritten and force-pushed; a fresh clone of that branch has none of the eight reference paths in `git log --all`. Tests passed 15/15 and the production build succeeded on `9080341994513e03014f49e8afdd9fbb3c4b7bfc`. GitHub `refs/pull/1/head`, cached views, and any earlier public clones can still hold the old objects until GitHub Support clears them and the repository is made private.
-- [ ] **CONTENT-12 — Establish content publishing and rollback.** Complete when: Recipes have stable IDs and versions, and a corrected recipe cannot silently invalidate a locked customer plan or its grocery quantities.
+- [x] **CONTENT-12 — Establish content publishing and rollback.** Complete when: Recipes have stable IDs and versions, and a corrected recipe cannot silently invalidate a locked customer plan or its grocery quantities.
 
 Primary references: [A01](#primary-sources), [A04](#primary-sources).
 
@@ -167,15 +168,15 @@ Primary references: [A01](#primary-sources), [A04](#primary-sources).
 Owner: **Engineering / Product / QA**. Dependencies: **CONTENT; SCOPE**. Applies: **V1**.
 
 - [ ] **MONEY-01 — Validate units and conversion rules.** Complete when: Grams, ounces, milliliters, fluid ounces, counts, can sizes and drained weights are represented and converted without mixing mass and volume.
-- [ ] **MONEY-02 — Retain uncertainty rather than treating it as zero stock.** Complete when: An unknown quantity triggers confirmation, does not qualify a meal as fully on hand and does not automatically recommend rebuying the same item.
-- [ ] **MONEY-03 — Validate whole-package purchase estimates.** Complete when: Missing requirements round to actual pack sizes and use customer-entered or correctly sourced package prices.
+- [x] **MONEY-02 — Retain uncertainty rather than treating it as zero stock.** Complete when: An unknown quantity triggers confirmation, does not qualify a meal as fully on hand and does not automatically recommend rebuying the same item.
+- [x] **MONEY-03 — Validate whole-package purchase estimates.** Complete when: Missing requirements round to actual pack sizes and use customer-entered or correctly sourced package prices.
 - [ ] **MONEY-04 — Show price assumptions clearly.** Complete when: Currency, location, retailer, date or example-price status are visible; example prices are not presented as live supermarket prices.
-- [ ] **MONEY-05 — Aggregate requirements across the whole week.** Complete when: Multiple meals compete for the same stock, and shared ingredients and purchases are counted once.
-- [ ] **MONEY-06 — Keep prices and unit labels consistent.** Complete when: Changing currency does not merely relabel unconverted amounts; the user resets prices or receives an explicitly supported conversion.
-- [ ] **MONEY-07 — Verify budget comparisons with incomplete data.** Complete when: Unknown quantities or missing prices cannot produce a false complete total or an unsupported under-budget claim.
-- [ ] **MONEY-08 — Define what a savings number means.** Complete when: Any displayed savings identifies its comparison and time period; pantry value and food consumed are not automatically counted as money saved.
+- [x] **MONEY-05 — Aggregate requirements across the whole week.** Complete when: Multiple meals compete for the same stock, and shared ingredients and purchases are counted once.
+- [x] **MONEY-06 — Keep prices and unit labels consistent.** Complete when: Changing currency does not merely relabel unconverted amounts; the user resets prices or receives an explicitly supported conversion.
+- [x] **MONEY-07 — Verify budget comparisons with incomplete data.** Complete when: Unknown quantities or missing prices cannot produce a false complete total or an unsupported under-budget claim.
+- [x] **MONEY-08 — Define what a savings number means.** Complete when: Any displayed savings identifies its comparison and time period; pantry value and food consumed are not automatically counted as money saved.
 - [ ] **MONEY-09 — Record actual purchases separately from estimates.** Complete when: Marking bought records the right amount, updates stock once and preserves a clear estimated-versus-actual cost distinction.
-- [ ] **MONEY-10 — Test cooking, leftovers, waste and corrections.** Complete when: Inventory updates conserve stock, refuse insufficient confirmed amounts and allow correction without duplicate spending or negative quantities; use-first cues reflect entered dates or user priorities.
+- [x] **MONEY-10 — Test cooking, leftovers, waste and corrections.** Complete when: Inventory updates conserve stock, refuse insufficient confirmed amounts and allow correction without duplicate spending or negative quantities; use-first cues reflect entered dates or user priorities.
 
 Primary references: [A01](#primary-sources).
 
@@ -184,15 +185,15 @@ Primary references: [A01](#primary-sources).
 Owner: **Engineering / QA**. Dependencies: **CONTENT; MONEY**. Applies: **V1**.
 
 - [ ] **PLAN-01 — Port all recipe and menu interactions.** Complete when: Search, filters, favorites, servings, steps, ratings and cooking actions work in the iPhone app.
-- [ ] **PLAN-02 — Support mixed diets and portions together.** Complete when: Per-person restrictions and portion sizes combine without applying one eater’s substitution to everyone.
-- [ ] **PLAN-03 — Respect practical cooking preferences.** Complete when: Cooking days, equipment, preparation time and ingredient exclusions affect actual generated plans.
+- [x] **PLAN-02 — Support mixed diets and portions together.** Complete when: Per-person restrictions and portion sizes combine without applying one eater’s substitution to everyone.
+- [x] **PLAN-03 — Respect practical cooking preferences.** Complete when: Cooking days, equipment, preparation time and ingredient exclusions affect actual generated plans.
 - [ ] **PLAN-04 — Make substitutions and missing ingredients visible.** Complete when: The menu distinguishes fully covered dishes, confirm-amount dishes and meals needing additional groceries.
-- [ ] **PLAN-05 — Generate a varied useful week.** Complete when: The planner uses available quantities and perishables while avoiding unnecessary purchases and monotonous repetition.
-- [ ] **PLAN-06 — Preserve the lock between plan and grocery list.** Complete when: Recipe swaps, portion changes and household changes show the ingredient and spending delta before a locked week changes.
-- [ ] **PLAN-07 — Handle recipe edits and removals in existing plans.** Complete when: Saved recipe versions or a clear reconciliation step preserve the customer’s shopping expectations.
+- [x] **PLAN-05 — Generate a varied useful week.** Complete when: The planner uses available quantities and perishables while avoiding unnecessary purchases and monotonous repetition.
+- [x] **PLAN-06 — Preserve the lock between plan and grocery list.** Complete when: Recipe swaps, portion changes and household changes show the ingredient and spending delta before a locked week changes.
+- [x] **PLAN-07 — Handle recipe edits and removals in existing plans.** Complete when: Saved recipe versions or a clear reconciliation step preserve the customer’s shopping expectations.
 - [ ] **PLAN-08 — Make grocery lists useful in a store.** Complete when: Aisle grouping, quantity, pack size, check-off, manual additions and sharing remain readable and consistent.
-- [ ] **PLAN-09 — Support safe undo for common mistakes.** Complete when: Accidental bought, cooked, delete and plan changes have a reliable correction or undo path.
-- [ ] **PLAN-10 — Ensure sample content remains clearly separate.** Complete when: Demo ingredients never contaminate a customer’s real pantry; sample and real modes are unmistakable.
+- [x] **PLAN-09 — Support safe undo for common mistakes.** Complete when: Accidental bought, cooked, delete and plan changes have a reliable correction or undo path.
+- [x] **PLAN-10 — Ensure sample content remains clearly separate.** Complete when: Demo ingredients never contaminate a customer’s real pantry; sample and real modes are unmistakable.
 
 ## 8. Finish native iPhone usability and accessibility
 
@@ -218,20 +219,20 @@ Primary references: [A16](#primary-sources), [A19](#primary-sources).
 
 Owner: **Backend / Security**. Dependencies: **SCOPE; IOS architecture decision**. Applies: **V1**.
 
-- [ ] **BACKEND-01 — Design customer and kitchen ownership explicitly.** Complete when: Account, guest installation, kitchen, eater profile and optional membership identities have an agreed data model.
-- [ ] **BACKEND-02 — Replace the global owner-kitchen record for consumer use.** Complete when: Every cloud kitchen is scoped to its verified owner; the existing private demo is never exposed as the consumer backend.
+- [x] **BACKEND-01 — Design customer and kitchen ownership explicitly.** Complete when: Account, guest installation, kitchen, eater profile and optional membership identities have an agreed data model.
+- [x] **BACKEND-02 — Replace the global owner-kitchen record for consumer use.** Complete when: Every cloud kitchen is scoped to its verified owner; the existing private demo is never exposed as the consumer backend.
 - [ ] **BACKEND-03 — Implement app-owned authentication for optional sync.** Complete when: Sign-in, sign-out, session refresh, secure credential storage and recovery work independently of the private ChatGPT Site gate.
 - [ ] **BACKEND-04 — Implement Sign in with Apple for the chosen account path.** Complete when: Identity tokens, nonce, issuer, audience and account linking are validated; any additional login options meet current Apple login rules.
-- [ ] **BACKEND-05 — Authorize every kitchen operation on the server.** Complete when: Reads, writes, exports, recognition requests and deletion enforce the authenticated customer or kitchen membership.
-- [ ] **BACKEND-06 — Authorize every photo operation on the server.** Complete when: Photo upload, view and delete enforce ownership; knowing a hash or URL never grants access to another household’s photo.
-- [ ] **BACKEND-07 — Scope deduplication and deletion correctly.** Complete when: Identical uploads across households cannot cause cross-household data sharing or allow one customer to delete another customer’s image.
-- [ ] **BACKEND-08 — Replace web-only same-origin assumptions.** Complete when: The native API has deliberate authentication, request validation and abuse controls; a native request origin is not used as proof of identity.
-- [ ] **BACKEND-09 — Validate the full data schema.** Complete when: Imports and API writes validate IDs, types, finite quantities, prices, limits and schema versions rather than only checking top-level arrays.
-- [ ] **BACKEND-10 — Make writes resilient and idempotent.** Complete when: Retries of scans, purchases, cooking and saves do not duplicate records or lose changes.
-- [ ] **BACKEND-11 — Handle multiple devices and concurrent edits.** Complete when: A documented conflict policy preserves customer edits instead of relying on repeated manual reloads.
+- [x] **BACKEND-05 — Authorize every kitchen operation on the server.** Complete when: Reads, writes, exports, recognition requests and deletion enforce the authenticated customer or kitchen membership.
+- [x] **BACKEND-06 — Authorize every photo operation on the server.** Complete when: Photo upload, view and delete enforce ownership; knowing a hash or URL never grants access to another household’s photo.
+- [x] **BACKEND-07 — Scope deduplication and deletion correctly.** Complete when: Identical uploads across households cannot cause cross-household data sharing or allow one customer to delete another customer’s image.
+- [x] **BACKEND-08 — Replace web-only same-origin assumptions.** Complete when: The native API has deliberate authentication, request validation and abuse controls; a native request origin is not used as proof of identity.
+- [x] **BACKEND-09 — Validate the full data schema.** Complete when: Imports and API writes validate IDs, types, finite quantities, prices, limits and schema versions rather than only checking top-level arrays.
+- [x] **BACKEND-10 — Make writes resilient and idempotent.** Complete when: Retries of scans, purchases, cooking and saves do not duplicate records or lose changes.
+- [x] **BACKEND-11 — Handle multiple devices and concurrent edits.** Complete when: A documented conflict policy preserves customer edits instead of relying on repeated manual reloads.
 - [ ] **BACKEND-12 — Separate environments and secrets.** Complete when: Production data, credentials and storage are isolated from demos, development and test accounts; keys remain server-side.
 - [ ] **BACKEND-13 — Enforce service limits.** Complete when: Photo size, scan frequency, storage quotas and request rate limits prevent abuse and uncontrolled costs without trapping legitimate customers.
-- [ ] **BACKEND-14 — Prove isolation with two unrelated customer accounts.** Complete when: Automated authorization checks and manual device tests confirm that one household cannot view or modify the other’s kitchen or photos.
+- [x] **BACKEND-14 — Prove isolation with two unrelated customer accounts.** Complete when: Automated authorization checks and manual device tests confirm that one household cannot view or modify the other’s kitchen or photos.
 - [ ] **BACKEND-15 — Review dependencies and external requests.** Complete when: Production dependencies are pinned and reviewed, unnecessary prototype packages removed, and sensitive values excluded from logs and public source.
 
 Primary references: [A04](#primary-sources), [A06](#primary-sources).
@@ -242,13 +243,13 @@ Owner: **Engineering / Operations**. Dependencies: **BACKEND; IOS storage choice
 
 - [ ] **DATA-01 — Implement reliable local storage.** Complete when: Inventory, plan, grocery list and settings survive app restarts and operate without relying on browser localStorage.
 - [ ] **DATA-02 — Store sessions and sensitive local material appropriately.** Complete when: Credentials use secure platform storage, local caches are scoped to the signed-in person and device backup behavior is deliberate.
-- [ ] **DATA-03 — Define offline behavior and synchronization.** Complete when: The core kitchen and saved recipes remain useful offline; pending changes and reconnect conflicts have visible, tested handling.
+- [x] **DATA-03 — Define offline behavior and synchronization.** Complete when: The core kitchen and saved recipes remain useful offline; pending changes and reconnect conflicts have visible, tested handling.
 - [ ] **DATA-04 — Create a safe migration path for existing data.** Complete when: The current pumpkin item, photos, recipes and plans can be exported or migrated with consent and rollback; prior quantities are not silently reinterpreted.
-- [ ] **DATA-05 — Add complete export and import validation.** Complete when: Export includes the promised data, import round-trips supported fields and malformed or oversized files fail safely.
+- [x] **DATA-05 — Add complete export and import validation.** Complete when: Export includes the promised data, import round-trips supported fields and malformed or oversized files fail safely.
 - [ ] **DATA-06 — Define photo retention and metadata handling.** Complete when: The policy specifies original versus compressed images, cache lifetime, EXIF/location removal and any vendor retention.
-- [ ] **DATA-07 — Implement complete deletion paths.** Complete when: Single-photo, kitchen reset, guest-data removal and account deletion remove the appropriate cloud, local and cached data.
+- [x] **DATA-07 — Implement complete deletion paths.** Complete when: Single-photo, kitchen reset, guest-data removal and account deletion remove the appropriate cloud, local and cached data.
 - [ ] **DATA-08 — Set backup and restoration procedures.** Complete when: Production data has defined backup frequency, retention and a rehearsed restoration process with access controls.
-- [ ] **DATA-09 — Prevent deleted data from reappearing.** Complete when: Sync queues, backups, restored sessions and model caches cannot resurrect a deliberately deleted kitchen or account.
+- [x] **DATA-09 — Prevent deleted data from reappearing.** Complete when: Sync queues, backups, restored sessions and model caches cannot resurrect a deliberately deleted kitchen or account.
 - [ ] **DATA-10 — Monitor migrations and integrity.** Complete when: Schema upgrades, partial migrations and recovery failures are observable without logging private kitchen contents.
 
 Primary references: [A04](#primary-sources), [A06](#primary-sources).
@@ -257,19 +258,19 @@ Primary references: [A04](#primary-sources), [A06](#primary-sources).
 
 Owner: **Product / Privacy / Engineering**. Dependencies: **BACKEND; DATA; SCAN engine decision**. Applies: **V1**.
 
-- [ ] **PRIVACY-01 — Map all collected and shared data.** Complete when: Record food photos, household preferences, identifiers, purchases, usage, diagnostics and every service or SDK that receives them.
+- [x] **PRIVACY-01 — Map all collected and shared data.** Complete when: Record food photos, household preferences, identifiers, purchases, usage, diagnostics and every service or SDK that receives them.
 - [ ] **PRIVACY-02 — Review launch-region privacy obligations.** **Business/legal.** Complete when: The legal operator, customer locations, retention and data-subject rights have an appropriate documented review for the selected markets.
 - [ ] **PRIVACY-03 — Publish an accurate accessible privacy policy.** **Apple requirement.** Complete when: A public URL and an in-app link explain actual collection, use, vendors, retention and deletion; access does not require app login.
 - [ ] **PRIVACY-04 — Publish customer terms and the applicable license.** **Business/legal.** Complete when: Terms cover the service and billing behavior, and the Apple standard EULA or a reviewed custom EULA is selected consistently.
-- [ ] **PRIVACY-05 — Complete accurate App Privacy answers.** **Apple requirement.** Complete when: App Store disclosures reflect production behavior and third-party SDKs, with linked-data and tracking classifications supported by the data map.
-- [ ] **PRIVACY-06 — Add required privacy manifests and API reasons.** **Apple requirement.** Complete when: The app and applicable SDKs include valid manifests and approved reasons for covered APIs; the archive’s privacy report is reviewed.
+- [x] **PRIVACY-05 — Complete accurate App Privacy answers.** **Apple requirement.** Complete when: App Store disclosures reflect production behavior and third-party SDKs, with linked-data and tracking classifications supported by the data map.
+- [x] **PRIVACY-06 — Add required privacy manifests and API reasons.** **Apple requirement.** Complete when: The app and applicable SDKs include valid manifests and approved reasons for covered APIs; the archive’s privacy report is reviewed.
 - [ ] **PRIVACY-07 — Verify SDK signature obligations.** **Apple requirement.** Complete when: Listed SDKs, including any wrappers, satisfy Apple’s applicable manifest and binary-signature requirements.
 - [ ] **PRIVACY-08 — Audit permission purpose strings and entitlements.** **Apple requirement.** Complete when: Camera and any requested photo or notification access match actual features; unnecessary permissions are removed and limited access works.
-- [ ] **PRIVACY-09 — Add required consent if personal data reaches a third-party AI service.** **Apple requirement.** Complete when: The app explains the destination and purpose and obtains the required explicit permission before sharing; an on-device claim is used only when true.
-- [ ] **PRIVACY-10 — Provide in-app account deletion if accounts can be created.** **Apple requirement.** Complete when: The user can initiate real deletion in the app, revoke the relevant sign-in credentials and receive a clear explanation of any legally retained records.
-- [ ] **PRIVACY-11 — Distinguish account deletion from subscription cancellation.** Complete when: Deletion does not misleadingly imply Apple billing stops; management links and immediate deletion remain available.
-- [ ] **PRIVACY-12 — Confirm the intended audience and data practices.** Complete when: The app is not presented as a Kids Category service; changes involving children or sensitive health data trigger the additional branch below.
-- [ ] **PRIVACY-13 — Document the no-tracking decision.** Complete when: Audit analytics and vendors against that decision; add App Tracking Transparency only if actual tracking is introduced and eligible functionality remains usable after refusal.
+- [x] **PRIVACY-09 — Add required consent if personal data reaches a third-party AI service.** **Apple requirement.** Complete when: The app explains the destination and purpose and obtains the required explicit permission before sharing; an on-device claim is used only when true.
+- [x] **PRIVACY-10 — Provide in-app account deletion if accounts can be created.** **Apple requirement.** Complete when: The user can initiate real deletion in the app, revoke the relevant sign-in credentials and receive a clear explanation of any legally retained records.
+- [x] **PRIVACY-11 — Distinguish account deletion from subscription cancellation.** Complete when: Deletion does not misleadingly imply Apple billing stops; management links and immediate deletion remain available.
+- [x] **PRIVACY-12 — Confirm the intended audience and data practices.** Complete when: The app is not presented as a Kids Category service; changes involving children or sensitive health data trigger the additional branch below.
+- [x] **PRIVACY-13 — Document the no-tracking decision.** Complete when: Audit analytics and vendors against that decision; add App Tracking Transparency only if actual tracking is introduced and eligible functionality remains usable after refusal.
 - [ ] **PRIVACY-14 — Validate privacy end to end on a real build.** Complete when: Network observation, SDK configuration and deletion tests agree with policy wording and App Store answers.
 
 Primary references: [A01](#primary-sources), [A04](#primary-sources), [A05](#primary-sources), [A06](#primary-sources), [A15](#primary-sources).
@@ -283,15 +284,15 @@ Owner: **Engineering / PM / Finance**. Dependencies: **ACCOUNT; BACKEND; SCOPE p
 - [ ] **BILLING-03 — Create the chosen subscription products.** **Apple requirement.** Complete when: Product IDs, subscription group, levels, durations, availability, localization and base-region prices match the planned paid benefits.
 - [ ] **BILLING-04 — Use StoreKit-based Apple In-App Purchase for the chosen digital plan.** **Apple requirement.** Complete when: The native purchase library works in the development and production builds; ordinary iOS digital upgrades use the planned Apple purchase flow.
 - [ ] **BILLING-05 — Read live product and price information.** Complete when: Paywall prices, currency, duration and introductory eligibility come from StoreKit instead of hard-coded marketing values.
-- [ ] **BILLING-06 — Make the paywall unambiguous.** **Apple requirement.** Complete when: Benefits, total charge, billing interval, auto-renewal, trial terms if any, terms and privacy links are clearly accessible before purchase.
+- [x] **BILLING-06 — Make the paywall unambiguous.** **Apple requirement.** Complete when: Benefits, total charge, billing interval, auto-renewal, trial terms if any, terms and privacy links are clearly accessible before purchase.
 - [ ] **BILLING-07 — Validate signed transactions and entitlements.** Complete when: The app and backend verify purchases, handle current entitlements and finish transactions without trusting a client-side paid flag.
 - [ ] **BILLING-08 — Map purchases to the right person or household.** Complete when: Guest purchases, account creation, sign-out and account switching have a documented policy that prevents entitlement leakage or accidental loss.
 - [ ] **BILLING-09 — Implement a visible restore-purchases path.** **Apple requirement.** Complete when: Reinstalling or using another eligible device restores the correct entitlement with a useful result message.
-- [ ] **BILLING-10 — Provide subscription management and customer support.** Complete when: Users can reach Apple’s subscription management and relevant refund-support path without confusing an app-account action with billing cancellation.
+- [x] **BILLING-10 — Provide subscription management and customer support.** Complete when: Users can reach Apple’s subscription management and relevant refund-support path without confusing an app-account action with billing cancellation.
 - [ ] **BILLING-11 — Handle the full subscription lifecycle.** Complete when: Purchase cancellation, pending approval, renewal, upgrade/downgrade, expiration, refund, revocation, billing retry and grace period are handled correctly.
 - [ ] **BILLING-12 — Secure and reconcile server billing events.** Complete when: Notifications are validated, duplicate or out-of-order events are safe, and periodic reconciliation corrects missed events.
 - [ ] **BILLING-13 — Test purchases in StoreKit and Apple sandbox.** Complete when: Success, failure, interrupted purchase, trial eligibility, restore, multiple devices and signed-in/out states have recorded outcomes.
-- [ ] **BILLING-14 — Test free and expired states.** Complete when: An expired subscription cannot unlock paid server work; customers can still access their data and clearly understand available free functions.
+- [x] **BILLING-14 — Test free and expired states.** Complete when: An expired subscription cannot unlock paid server work; customers can still access their data and clearly understand available free functions.
 - [ ] **BILLING-15 — Prepare product review information.** **Apple requirement.** Complete when: Required localized names, descriptions and review screenshots accurately show the purchasable experience.
 - [ ] **BILLING-16 — Include the first relevant In-App Purchases with an app version submission.** **Apple requirement.** Complete when: The app and the first subscription of its type are in the correct review submission; submission readiness is verified in the current console.
 
@@ -301,14 +302,14 @@ Primary references: [A01](#primary-sources), [A07](#primary-sources), [A08](#pri
 
 Owner: **QA / Engineering**. Dependencies: **IOS; SCAN; CONTENT; MONEY; PLAN; UX; BACKEND; DATA; PRIVACY; BILLING**. Applies: **V1**.
 
-- [ ] **QA-01 — Maintain and extend the logic regression suite.** Complete when: Tests cover pumpkin migration and refresh, new catalog foods, quantities, matching, portions, purchases, locks and migrations.
+- [x] **QA-01 — Maintain and extend the logic regression suite.** Complete when: Tests cover pumpkin migration and refresh, new catalog foods, quantities, matching, portions, purchases, locks and migrations.
 - [ ] **QA-02 — Test the entire first-use customer journey.** Complete when: A clean installation can scan real food, correct it, find a suitable dinner and form a consistent grocery list without help.
 - [ ] **QA-03 — Test core journeys for free and paid customers.** Complete when: New, returning, expired, restored and offline customers see the correct usable experience and entitlements.
 - [ ] **QA-04 — Test the smallest and oldest supported iPhones.** Complete when: Real hardware covers the declared minimum OS and memory baseline as well as a current device and latest supported OS.
 - [ ] **QA-05 — Test camera and photo edge cases.** Complete when: Permission denial, limited library, HEIC, rotation, very large files, partial uploads and background interruption recover correctly.
 - [ ] **QA-06 — Test network and lifecycle changes.** Complete when: Slow or absent connectivity, Wi-Fi/cellular switching, app kill/relaunch, low storage, low-power mode and expired sessions preserve the kitchen.
 - [ ] **QA-07 — Test data ownership and destructive controls.** Complete when: Two-household isolation, sign-out, export, deletion, reset and backup restoration match their documented behavior.
-- [ ] **QA-08 — Test quantity and recipe edge cases.** Complete when: Single servings, large portions, partial cans, duplicate photos, unavailable substitutes and food depletion produce valid results.
+- [x] **QA-08 — Test quantity and recipe edge cases.** Complete when: Single servings, large portions, partial cans, duplicate photos, unavailable substitutes and food depletion produce valid results.
 - [ ] **QA-09 — Test concurrent activity.** Complete when: Two devices editing or cooking at once cannot create negative stock, ghost meals, duplicated purchases or lost confirmed data.
 - [ ] **QA-10 — Test billing failure and recovery on physical devices.** Complete when: StoreKit and backend states stay consistent through interrupted purchases, restore and Apple sandbox lifecycle changes.
 - [ ] **QA-11 — Run the accessibility acceptance journey.** Complete when: VoiceOver, larger text, contrast, focus, keyboard and reduced-motion checks pass for the common tasks we claim to support.
@@ -324,12 +325,12 @@ Primary references: [A01](#primary-sources), [A19](#primary-sources).
 Owner: **Product / Design / Apple Account Holder**. Dependencies: **ACCOUNT; production feature set; QA evidence**. Applies: **V1**.
 
 - [ ] **STORE-01 — Complete the app’s core record.** **Apple requirement.** Complete when: Platform, bundle ID, SKU, primary language, display name and ownership match the signed app.
-- [ ] **STORE-02 — Write the app name, subtitle, description and keywords.** Complete when: Current field limits are checked; copy focuses on appetizing meals from owned food and accurate savings-related benefits.
+- [x] **STORE-02 — Write the app name, subtitle, description and keywords.** Complete when: Current field limits are checked; copy focuses on appetizing meals from owned food and accurate savings-related benefits.
 - [ ] **STORE-03 — Choose appropriate categories and copyright details.** Complete when: Food & Drink is the working primary category, and category, copyright holder and contact details are consistent across the app and console.
-- [ ] **STORE-04 — Complete current age-rating questions.** **Apple requirement.** Complete when: Answers describe the actual app, including AI or user-content capabilities if present; the rating is generated rather than guessed.
-- [ ] **STORE-05 — Provide the required app icon assets.** **Apple requirement.** Complete when: Native and marketing icon assets meet current Xcode/App Store validation and are distinct from competitors.
+- [x] **STORE-04 — Complete current age-rating questions.** **Apple requirement.** Complete when: Answers describe the actual app, including AI or user-content capabilities if present; the rating is generated rather than guessed.
+- [x] **STORE-05 — Provide the required app icon assets.** **Apple requirement.** Complete when: Native and marketing icon assets meet current Xcode/App Store validation and are distinct from competitors.
 - [ ] **STORE-06 — Capture required device screenshots from the release candidate.** **Apple requirement.** Complete when: The accepted device-size slots in the current console are filled with real app UI; the existing desktop web screenshot is not used as an iPhone capture.
-- [ ] **STORE-07 — Create persuasive screenshot captions.** Complete when: Images clearly show photograph, confirm, Today’s Specials, actual recipe, household plan and the remaining grocery spend.
+- [x] **STORE-07 — Create persuasive screenshot captions.** Complete when: Images clearly show photograph, confirm, Today’s Specials, actual recipe, household plan and the remaining grocery spend.
 - [ ] **STORE-08 — Produce an app-preview video if chosen.** **Conditional.** Complete when: The video follows current specifications and demonstrates real in-app behavior and licensed media; otherwise record N/A.
 - [ ] **STORE-09 — Supply a functioning support URL.** **Apple requirement.** Complete when: The page opens publicly, provides a working contact and answers basic scan, billing and account questions.
 - [ ] **STORE-10 — Supply privacy and relevant license URLs.** **Apple requirement.** Complete when: URLs are public, correct, stable and consistent with the in-app documents and chosen EULA.
@@ -338,8 +339,8 @@ Owner: **Product / Design / Apple Account Holder**. Dependencies: **ACCOUNT; pro
 - [ ] **STORE-13 — Complete territorial availability and DSA information.** **Apple requirement.** Complete when: US-only is the initial working setting; trader declaration and any required verification are complete before adding EU territories.
 - [ ] **STORE-14 — Set app and subscription pricing consistently.** Complete when: Free app download with the selected optional paid plan is configured; product availability, regional prices and display text agree.
 - [ ] **STORE-15 — Evaluate App Accessibility declarations.** Complete when: Publish only accessibility support demonstrated by the release candidate; an optional accessibility information URL is accurate.
-- [ ] **STORE-16 — Supply App Review access and instructions.** **Apple requirement.** Complete when: Reviewers receive a working demo account if needed, sample test photos or a reliable sample kitchen, scan instructions and access to paid features for review.
-- [ ] **STORE-17 — Explain the app’s independent value to reviewers.** Complete when: Notes describe the native photo flow, owned-food matching, household adaptations and coordinated plan/list behavior without competitor-copy claims.
+- [x] **STORE-16 — Supply App Review access and instructions.** **Apple requirement.** Complete when: Reviewers receive a working demo account if needed, sample test photos or a reliable sample kitchen, scan instructions and access to paid features for review.
+- [x] **STORE-17 — Explain the app’s independent value to reviewers.** Complete when: Notes describe the native photo flow, owned-food matching, household adaptations and coordinated plan/list behavior without competitor-copy claims.
 
 Primary references: [A11](#primary-sources), [A12](#primary-sources), [A13](#primary-sources), [A14](#primary-sources), [A15](#primary-sources), [A16](#primary-sources), [A19](#primary-sources).
 
@@ -351,7 +352,7 @@ Owner: **QA / Engineering / Product**. Dependencies: **IOS signed archive; priva
 - [ ] **BETA-02 — Distribute to an internal TestFlight group.** Complete when: The team installs the standalone app through TestFlight and verifies production-intended configuration.
 - [ ] **BETA-03 — Complete external beta information and review as applicable.** **Apple requirement.** Complete when: The external group and beta-review details are complete, and the first required beta review is approved before external distribution.
 - [ ] **BETA-04 — Recruit representative households with consent.** Complete when: Proposed launch bar: at least 10 households, including less technical users and older supported phones; record any justified target change before testing.
-- [ ] **BETA-05 — Provide a concise beta test script.** Complete when: Testers cover actual fridge/freezer/pantry photos, corrections, appealing meal choice, dietary differences, budget and a complete meal cycle.
+- [x] **BETA-05 — Provide a concise beta test script.** Complete when: Testers cover actual fridge/freezer/pantry photos, corrections, appealing meal choice, dietary differences, budget and a complete meal cycle.
 - [ ] **BETA-06 — Collect product evidence rather than compliments alone.** Complete when: Measure first useful menu, name correction rate, missing recipe coverage, extra purchase estimates, crashes and actual return usage.
 - [ ] **BETA-07 — Fix the repeated sources of failure.** Complete when: Beta failures become regression cases, including foods other than pumpkin that previously produced no matching specials.
 - [ ] **BETA-08 — Run a final regression on the exact candidate.** Complete when: The candidate build, backend release, model version, recipe catalog and billing setup are fixed and tested together.
@@ -429,23 +430,23 @@ Complete this record for the actual submitted and released version. A checked ta
 
 | Field | Value |
 | --- | --- |
-| Legal seller / Apple Team ID | Pending verification |
-| Bundle ID / App Store app ID | Pending |
-| Version / build number | Pending |
-| Released source commit / backend version | Pending |
-| Recognition runtime and model version | Pending |
-| Recipe catalog version | Pending |
-| Supported devices / minimum iOS | Pending device evidence |
+| Legal seller / Apple Team ID | Pending. Not chosen in this repository. |
+| Bundle ID / App Store app ID | Placeholder `com.cagefreecapital.pshop`. App Store app id not created. |
+| Version / build number | Marketing 0.1.0, build 1. Not uploaded. |
+| Released source commit / backend version | Not released. Worker name `pshop`. Database id is still the placeholder. |
+| Recognition runtime and model version | `@huggingface/transformers@3.8.1`, SmolVLM-256M-Instruct q4 WASM. See `models/MODEL.md`. |
+| Recipe catalog version | Launch library version 1, plus the original dishes. Structural checks pass. Cooking test open. |
+| Supported devices / minimum iOS | Proposed iPhone, iOS 17. Not device-tested. Upload SDK is Xcode 26 / iOS 26 as of October 26, 2026. |
 | Storefronts / languages | Proposed: US / English |
-| Subscription product IDs and prices | Pending economics and StoreKit setup |
-| Privacy policy / support / terms URLs | Pending |
-| Device and beta evidence | Pending |
-| Account deletion and isolation evidence | Pending |
-| App Review outcome / approved products | Pending |
-| Release authorization and actual release time | Pending |
-| Public App Store URL | Pending |
-| First clean install / production purchase / restore | Pending |
-| Operations and support owner | Pending assignment |
+| Subscription product IDs and prices | Ids reserved in `lib/entitlements.mjs`. No prices. Stub returns no products. |
+| Privacy policy / support / terms URLs | Text in `public/legal/`. Not hosted. |
+| Device and beta evidence | None. |
+| Account deletion and isolation evidence | Automated tests only. |
+| App Review outcome / approved products | Not submitted. |
+| Release authorization and actual release time | Not released. |
+| Public App Store URL | None. |
+| First clean install / production purchase / restore | Not done. |
+| Operations and support owner | Account Holder. Mailbox not chosen. |
 
 ## Primary sources
 

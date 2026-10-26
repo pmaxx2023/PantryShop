@@ -3,12 +3,12 @@ import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 import { readExecutionProfile } from "./scripts/execution-profile.mjs";
 import { configureToolEnvironment } from "./scripts/tool-environment.mjs";
-import { sites } from "./scripts/vite/sites-vite-plugin";
 import { connectorPreview } from "./scripts/vite/connector-preview-plugin.mjs";
 
 const PLACEHOLDER_DATABASE_ID = "00000000-0000-4000-8000-000000000000";
 
 const { d1, r2 } = hostingConfig;
+const enableSites = process.env.PSHOP_ENABLE_SITES === "1";
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
@@ -16,7 +16,6 @@ const managedLinux = readExecutionProfile() === "managed-linux";
 
 const localBindingConfig = {
   main: "./worker/index.ts",
-  compatibility_flags: ["nodejs_compat"],
   d1_databases: d1
     ? [
         {
@@ -42,6 +41,10 @@ export default defineConfig(async ({ command }) => {
   // Wrangler snapshots its log path while the Cloudflare plugin is imported.
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
+  const sitesPlugin = enableSites
+    ? (await import("./scripts/vite/sites-vite-plugin")).sites({ mockAuth: !managedLinux })
+    : null;
+
   return {
     server: {
       ...(managedLinux
@@ -53,7 +56,7 @@ export default defineConfig(async ({ command }) => {
     },
     plugins: [
       vinext(),
-      sites({ mockAuth: !managedLinux }),
+      ...(sitesPlugin ? [sitesPlugin] : []),
       connectorPreview(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },

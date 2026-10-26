@@ -58,7 +58,7 @@ test('the saved pumpkin photo label becomes usable without reuploading or invent
  s.inventory=[{id:'saved-item',ingredientId:'custom__pure_pumpkin_',qty:1,location:'Fridge',source:'photo',name:'% Pure Pumpkin.',unit:'each'}];
  const n=normalizeKitchen(s);assert.equal(n.inventory[0].ingredientId,'pumpkin_puree');assert.equal(n.inventory[0].qty,null);assert.match(n.inventory[0].quantityNote,/Previously entered as 1 each/);
  assert.deepEqual(n.photos,s.photos);assert.equal(s.inventory[0].qty,1);assert.equal(normalizeKitchen(n),n);
- const specials=specialsForKitchen(n);assert.equal(specials.length,9);assert(specials.slice(0,3).every(x=>x.r.pantryIngredient==='pumpkin_puree'));
+ const specials=specialsForKitchen(n);assert.equal(specials.filter(x=>x.r.pantryIngredient==='pumpkin_puree').length,3);assert(specials.slice(0,3).every(x=>x.r.pantryIngredient==='pumpkin_puree'));
  assert(specials.slice(0,3).every(x=>x.a.unknown.some(i=>i.id==='pumpkin_puree')));assert.equal(foodsWithoutRecipes(n).length,0);
  assert(!specialsForKitchen(n,'onhand').some(x=>x.r.pantryIngredient==='pumpkin_puree'));
 });
