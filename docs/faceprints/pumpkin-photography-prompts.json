@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "pumpkin-pasta",
+      "dish": "Silky pumpkin rigatoni",
+      "details": "A generous shallow ivory ceramic bowl of ridged rigatoni completely coated in glossy deep golden-orange pumpkin purée sauce, visible curved pasta ridges and tiny garlic flecks, finely grated Parmesan melting on top, tiny black pepper flecks. No herbs, seeds, meat, or unlisted garnish.",
+      "path": "public/food/pumpkin-pasta.webp",
+      "style": "Original landscape 3:2 editorial dinner photograph. Warm natural window light, ivory ceramic bowl, warm pale stone backdrop, close three-quarter composition, rich appetizing food textures, no text, logo, hands or unrelated garnish."
+    },
+    {
+      "id": "pumpkin-soup",
+      "dish": "Velvety coconut pumpkin soup",
+      "details": "A shallow ivory ceramic bowl full of silky warm golden-orange pumpkin purée soup, a subtle small swirl of white coconut milk, black pepper speckles. Two pieces of golden toasted crusty bread rest on the edge of the bowl. No herbs, seeds, or unlisted garnish.",
+      "path": "public/food/pumpkin-soup.webp",
+      "style": "Original landscape 3:2 editorial dinner photograph. Warm natural window light, ivory ceramic bowl, warm pale stone backdrop, close three-quarter composition, rich appetizing food textures, no text, logo, hands or unrelated garnish."
+    },
+    {
+      "id": "pumpkin-curry",
+      "dish": "Pumpkin & chickpea coconut curry",
+      "details": "A shallow ivory ceramic bowl with chickpeas in a rich glossy deep orange pumpkin-coconut curry sauce, wilted spinach leaves integrated in the sauce, small flecks of curry spices, one portion of fluffy white rice alongside in the same bowl. No raw pumpkin chunks, nuts, seeds, herbs, or unlisted garnish.",
+      "path": "public/food/pumpkin-curry.webp",
+      "style": "Original landscape 3:2 editorial dinner photograph. Warm natural window light, ivory ceramic bowl, warm pale stone backdrop, close three-quarter composition, rich appetizing food textures, no text, logo, hands or unrelated garnish."
+    }
+  ]
+}
