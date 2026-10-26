@@ -18,7 +18,7 @@ Every commit and every remote branch was checked (`git rev-list --all`, `git ls-
 | `docs/faceprints/mise-annotated-contact-sheet.png` | `543dbdf11f14436f45c9736f4af9b829d8a46539` | Contact sheet of those screens |
 | `docs/faceprints/mise-screen-map.json` | `3fc76065de449ba9f70c3a0b8f201a164203efb9` | Screen map, crops, and visual hashes |
 | `docs/faceprints/food-photography-prompts.json` | `851405d66214ddf0215a13b52f702a4c6d1e3d55` | Original photo prompts, stored under the old directory |
-| `docs/photography/pumpkin-photography-prompts.json` | `591f2847d7c5094f5a355e2411be0174d5113220` | Original photo prompts, stored under the old directory |
+| `docs/faceprints/pumpkin-photography-prompts.json` | `591f2847d7c5094f5a355e2411be0174d5113220` | Original photo prompts, stored under the old directory |
 | `public/reference/mise-annotated-contact-sheet.png` | `543dbdf11f14436f45c9736f4af9b829d8a46539` | Same contact-sheet blob as the docs copy |
 | `public/reference/mise-faceprint.html` | `97d21bc561bfe68f8e3a175f762c66c83f4c237d` | Public page that displayed the screens |
 | `public/reference/mise-screen-map.json` | `3fc76065de449ba9f70c3a0b8f201a164203efb9` | Same screen-map blob as the docs copy |
@@ -49,7 +49,7 @@ git filter-repo --invert-paths \
   --path docs/faceprints/food-photography-prompts.json \
   --path docs/faceprints/mise-annotated-contact-sheet.png \
   --path docs/faceprints/mise-screen-map.json \
-  --path docs/photography/pumpkin-photography-prompts.json \
+  --path docs/faceprints/pumpkin-photography-prompts.json \
   --path public/reference/mise-annotated-contact-sheet.png \
   --path public/reference/mise-faceprint.html \
   --path public/reference/mise-screen-map.json
@@ -58,12 +58,12 @@ git filter-repo --invert-paths \
 Save the following as `/tmp/pshop-history-replacements.txt`. Each line is `literal==>replacement`. The apostrophe in `mise’s` is U+2019, the character that is actually in the old README.
 
 ```
-A meal planner==>A meal planner
-==>
-==>
-This implementation does not include a third-party recipe catalog==>This implementation does not include a third-party recipe catalog
-docs/photography/pumpkin-photography-prompts.json==>docs/photography/pumpkin-photography-prompts.json
-third-party product screenshots, screen maps, and competitor branding==>third-party product screenshots, screen maps, and competitor branding
+A mise-inspired meal planner==>A meal planner
+The source faceprint covers five published mise mobile views and 39 measured regions, with source URLs, crop coordinates, normalized geometry and DCT visual hashes. See docs/faceprints/ or the published /reference/mise-faceprint.html.==>
+Published screenshots establish visible layout and controls, not hidden behavior or complete incumbent parity. ==>
+This implementation does not include mise’s proprietary recipe catalog==>This implementation does not include a third-party recipe catalog
+docs/faceprints/pumpkin-photography-prompts.json==>docs/photography/pumpkin-photography-prompts.json
+mise screenshots, faceprint reference pages and competitor branding==>third-party product screenshots, screen maps, and competitor branding
 ```
 
 `filter-repo` removes `origin` after the first run so a later push is deliberate. The second run needs `--force` for that reason. `--force` here only rewrites the local mirror.
