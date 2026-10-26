@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PantryShop — Today’s Specials",
+  title: "PShop — Today’s Specials",
   description: "An inviting menu made from what’s already in your kitchen. Photo inventory, household meals and one coordinated grocery list.",
   icons: {
     icon: "/favicon.svg",
