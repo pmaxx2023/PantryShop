@@ -20,6 +20,7 @@ export async function POST(request: Request) {
   if ('unavailable' in current) return privateJson({error: 'Cloud accounts are unavailable. This device kitchen still works.'}, 503);
   let body: {identityToken?: string; nonce?: string};
   try { body = await request.json(); } catch { return privateJson({error: 'Missing Apple identity token.'}, 400); }
+  if (!body.nonce) return privateJson({error: 'Missing Apple sign-in nonce.'}, 400);
   let keys;
   try { keys = await fetchAppleKeys(); } catch { return privateJson({error: 'Apple could not be reached to check the sign-in token.'}, 503); }
   const verified = await verifyAppleIdentityToken(body.identityToken, {keys, nonce: body.nonce});

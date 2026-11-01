@@ -61,8 +61,12 @@ export default defineConfig(async ({ command }) => {
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
         inspectorPort: false,
-        config: {
-          ...localBindingConfig,
+        // wrangler.toml may already declare DB and BUCKET. Adding them again
+        // produces duplicate bindings that wrangler refuses to deploy or start.
+        config: (workerConfig) => ({
+          main: localBindingConfig.main,
+          ...(workerConfig.d1_databases?.length ? {} : { d1_databases: localBindingConfig.d1_databases }),
+          ...(workerConfig.r2_buckets?.length ? {} : { r2_buckets: localBindingConfig.r2_buckets }),
           ...(command === "serve"
             ? {
                 services: [
@@ -74,7 +78,7 @@ export default defineConfig(async ({ command }) => {
                 ],
               }
             : {}),
-        },
+        }),
         ...(command === "serve"
           ? {
               auxiliaryWorkers: [
